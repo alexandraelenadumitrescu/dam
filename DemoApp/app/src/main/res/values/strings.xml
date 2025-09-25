@@ -1,4 +1,17 @@
 <resources>
     <string name="app_name">DemoApp</string>
     <string name="fab__message">display button</string>
+    <string name="add_name">Name</string>
+    <string name="add_enrollment_date">Enrollment date</string>
+    <string name="add_faculty">Faculty</string>
+    <string name="add_study_type">Study type</string>
+    <string name="add_full_time">Full time</string>
+    <string name="add_distance">Distance</string>
+    <string name="add_save">Save</string>
+
+    <string-array name="add_faculties">
+        <item>CSIE</item>
+        <item>MK</item>
+        <item>FABIZ</item>
+    </string-array>
 </resources>
