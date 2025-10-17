@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">App2</string>
+    <string name="add_nume">nume</string>
+    <string name="add_prenume">prenume</string>
+    <string name="add_data_de_nastere">data de nastere</string>
+    <string-array name="add_tip_client">
+        <item>Adult</item>
+        <item>Copil</item>
+        <item>Elev</item>
+        <item>Pensionar</item>
+        <item>Student</item>
+    </string-array>
+</resources>
