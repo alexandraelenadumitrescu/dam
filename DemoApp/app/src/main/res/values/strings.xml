@@ -8,6 +8,8 @@
     <string name="add_full_time">Full time</string>
     <string name="add_distance">Distance</string>
     <string name="add_save">Save</string>
+    <string name="add_invalid_name_minimum_3_characters">Invalid name. Minimum 3 characters</string>
+    <string name="add_invalid_enrollment_date_accepted_format_dd_mm_yyyy">Invalid enrollment date. Accepted format dd-mm-yyyy</string>
 
     <string-array name="add_faculties">
         <item>CSIE</item>
