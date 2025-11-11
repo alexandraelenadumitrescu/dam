@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">test2</string>
+    <string-array name="spn_sursa">
+        <item>primul element din spinner</item>
+        <item>al doilea item din spinner</item>
+    </string-array>
+</resources>
