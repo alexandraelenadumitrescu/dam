@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:title="Adauga inregistrare"
+        android:id="@+id/menu_it_adauga"/>
+    <item android:title="Exit"
+        android:id="@+id/menu_it2_exit"/>
+    <item android:title="Item" />
+    <item android:title="Item" />
+</menu>
