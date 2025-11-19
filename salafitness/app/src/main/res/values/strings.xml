@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">salafitness</string>
+    <string name="nume">nume</string>
+    <string name="adresa">adresa</string>
+    <string name="pret">pret</string>
+    <string name="data_deschidere">data deschidere</string>
+    <string name="salveaza">salveaza</string>
+    <string name="aveti_program_non_stop">aveti program non stop</string>
+</resources>

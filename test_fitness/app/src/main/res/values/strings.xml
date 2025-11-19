@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">test_fitness</string>
+    <string name="adauga">adauga</string>
+    <string name="vizualizeaza">vizualizeaza</string>
+    <string name="salveaza">salveaza</string>
+    <string name="este_non_stop">este non stop</string>
+</resources>

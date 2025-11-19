@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">My Application</string>
+    <string name="nume">nume</string>
+    <string name="cod">cod</string>
+    <string name="adresa">adresa</string>
+    <string name="salveaza">Salveaza</string>
+    <string name="se_afla_sub_coordonarea_me">Se afla sub coordonarea ME</string>
+</resources>

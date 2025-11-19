@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">Restaurant</string>
+    <string name="adauga">adauga</string>
+    <string name="vizualizeaza_lista">vizualizeaza lista</string>
+    <string name="numar_scaune">numar scaune</string>
+    <string name="nume">nume</string>
+    <string name="data">data</string>
+    <string name="adresa">adresa</string>
+    <string name="vegan">vegan</string>
+    <string name="salveaza">salveaza</string>
+    <string name="todo">TODO</string>
+</resources>

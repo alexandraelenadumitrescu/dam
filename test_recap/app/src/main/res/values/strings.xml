@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">test_recap</string>
+    <string name="adauga">adauga</string>
+    <string name="vizualizeaza">vizualizeaza</string>
+    <string name="data">data</string>
+    <string name="nume">nume</string>
+    <string name="salveaza">Salveaza</string>
+    <string-array name="spnent">
+    <item>1</item>
+    <item>2</item>
+</string-array>
+</resources>

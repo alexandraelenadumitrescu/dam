@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:title="adauga sala"
+        android:id="@+id/menu_it1"
+
+        android:tooltipText="adauga sala"/>
+    <item android:title="vizualizeaza lista sali"
+        android:id="@+id/menu_it2"
+        android:tooltipText="vizualizeaza lista sali"/>
+    <item android:title="Item" />
+    <item android:title="Item" />
+</menu>

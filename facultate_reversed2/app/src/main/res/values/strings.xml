@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">facultate_reversed</string>
+    <string name="nume">nume</string>
+    <string name="cod">cod</string>
+    <string name="dd_mm_yyyy_data">dd/MM/yyyy - data</string>
+    <string name="salveaza">Salveaza</string>
+    <string name="se_afla_sub_coordonarea_me">se afla sub coordonarea ME</string>
+    <string-array name="tip_inv">
+        <item>id</item>
+        <item>ir</item>
+    </string-array>
+</resources>
