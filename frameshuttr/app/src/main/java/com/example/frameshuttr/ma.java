@@ -1,5 +1,9 @@
 package com.example.frameshuttr;
 
+public class ma {
+    /*
+package com.example.frameshuttr;
+
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
@@ -39,8 +43,8 @@ public class MainActivity extends AppCompatActivity {
         editorView.addNode(style);
 
         // 3. Creăm Conexiunile (Fluxul: Source -> Culling -> Style)
-        editorView.connectNodes(source, culling);
-        editorView.connectNodes(culling, style);
+//        editorView.connectNodes(source, culling);
+//        editorView.connectNodes(culling, style);
 
         // 4. Butonul de procesare
         btnProcess.setOnClickListener(v -> {
@@ -59,4 +63,6 @@ public class MainActivity extends AppCompatActivity {
             }).start();
         });
     }
+}
+     */
 }
