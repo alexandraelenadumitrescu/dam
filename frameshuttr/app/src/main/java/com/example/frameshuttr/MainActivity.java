@@ -11,12 +11,13 @@ import com.example.frameshuttr.domain.nodes.CullingNode;
 import com.example.frameshuttr.domain.NodeEditorView;
 import com.example.frameshuttr.domain.nodes.SourceNode;
 import com.example.frameshuttr.domain.nodes.StyleTransferNode;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 public class MainActivity extends AppCompatActivity {
 
     private NodeEditorView editorView;
     private ImageView previewImage;
-    private Button btnProcess;
+    private FloatingActionButton btnProcess;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

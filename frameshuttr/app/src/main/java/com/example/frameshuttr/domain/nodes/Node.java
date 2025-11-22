@@ -22,6 +22,6 @@ public abstract class Node {
         this.id = id;
         this.title = title;
         this.type = type;
-        this.position = new RectF(x, y, x + 300, y + 150); // Dimensiune fixă
+        this.position = new RectF(x, y, x + 300, y + 150); // fix 300x150
     }
 }

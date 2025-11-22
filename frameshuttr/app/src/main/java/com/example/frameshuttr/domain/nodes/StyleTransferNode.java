@@ -4,7 +4,7 @@ import android.graphics.Bitmap;
 
 public class StyleTransferNode extends Node {
     public StyleTransferNode(String id, float x, float y) {
-        super(id, "AI Style: Van Gogh", NodeType.AI_STYLE_TRANSFER, x, y);
+        super(id, "Style Transfer", NodeType.AI_STYLE_TRANSFER, x, y);
     }
 
     @Override

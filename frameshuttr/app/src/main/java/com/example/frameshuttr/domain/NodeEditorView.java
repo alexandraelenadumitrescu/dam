@@ -19,13 +19,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class NodeEditorView extends View {
+
     private List<Node> nodes = new ArrayList<>();
-    // Adăugăm paint-uri noi pentru stilul n8n
-    private Paint nodeBodyPaint, nodeHeaderPaint, textPaint, linePaint, gridPaint, portPaint;
+
+    private Paint nodeBodyPaint, nodeHeaderPaint, textPaint, linePaint, gridPaint, portPaint;//
     private Node selectedNode = null;
     private float lastTouchX, lastTouchY;
 
-    // Configurare stil
+
     private static final int CORNER_RADIUS = 15;
     private static final int PORT_RADIUS = 12;
     private static final int GRID_SPACING = 60;
@@ -36,42 +37,42 @@ public class NodeEditorView extends View {
     }
 
     private void init() {
-        // 1. Corpul nodului (Gri închis, stil card)
+        // corp nod -gri, squircle
         nodeBodyPaint = new Paint();
         nodeBodyPaint.setColor(Color.parseColor("#333333"));
         nodeBodyPaint.setStyle(Paint.Style.FILL);
         nodeBodyPaint.setShadowLayer(12, 0, 0, Color.BLACK); // Umbră
         nodeBodyPaint.setAntiAlias(true);
 
-        // 2. Header-ul nodului (va lua culoarea dinamic)
+        // header
         nodeHeaderPaint = new Paint();
         nodeHeaderPaint.setStyle(Paint.Style.FILL);
         nodeHeaderPaint.setAntiAlias(true);
 
-        // 3. Text
+        // text
         textPaint = new Paint();
         textPaint.setColor(Color.WHITE);
         textPaint.setTextSize(32); // Mai finuț
         textPaint.setFakeBoldText(true);
         textPaint.setAntiAlias(true);
 
-        // 4. Linia de conexiune (Gri deschis, stil cablu)
+        // conexiuni
         linePaint = new Paint();
         linePaint.setColor(Color.parseColor("#AAAAAA"));
         linePaint.setStrokeWidth(6);
         linePaint.setStyle(Paint.Style.STROKE);
         linePaint.setAntiAlias(true);
 
-        // 5. Grila de fundal (Puncte)
+        // grid
         gridPaint = new Paint();
         gridPaint.setColor(Color.parseColor("#444444"));
         gridPaint.setStrokeWidth(3);
 
-        // 6. Porturi (Punctele de conexiune albă)
+        // intrari
         portPaint = new Paint();
         portPaint.setColor(Color.WHITE);
         portPaint.setStyle(Paint.Style.FILL);
-        portPaint.setAntiAlias(true);
+        portPaint.setAntiAlias(true);//fara zimti
 
         // Activăm accelerarea hardware pentru umbre
         setLayerType(LAYER_TYPE_SOFTWARE, nodeBodyPaint);
@@ -172,10 +173,10 @@ public class NodeEditorView extends View {
     private int getNodeColor(NodeType type) {
         // Culori vibrante pe fundal închis
         switch (type) {
-            case SOURCE: return Color.parseColor("#2ECC71"); // Emerald Green
-            case AI_CULLING: return Color.parseColor("#E74C3C"); // Alizarin Red
-            case AI_STYLE_TRANSFER: return Color.parseColor("#3498DB"); // River Blue
-            default: return Color.parseColor("#F1C40F"); // Sun Flower
+            case SOURCE: return Color.parseColor("#00E676"); // verde menta
+            case AI_CULLING: return Color.parseColor("#FF4081"); // roz-rosu
+            case AI_STYLE_TRANSFER: return Color.parseColor("#448AFF"); // albastru senin
+            default: return Color.parseColor("#FFAB00"); // chihlimbar
         }
     }
 
