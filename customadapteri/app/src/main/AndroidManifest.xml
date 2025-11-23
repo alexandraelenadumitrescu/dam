@@ -12,6 +12,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Customadapteri">
         <activity
+            android:name=".ListaCA"
+            android:exported="false" />
+        <activity
             android:name=".Lista"
             android:exported="false" />
         <activity

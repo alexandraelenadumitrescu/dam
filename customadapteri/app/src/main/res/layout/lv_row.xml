@@ -1,6 +1,65 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="wrap_content"
+    android:background="@color/lv_row"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <ImageView
+        android:id="@+id/row_iv_date"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+
+        android:layout_marginTop="16dp"
+        android:layout_marginStart="8dp"
+        app:layout_constraintEnd_toStartOf="@id/tow_tv_date"
+        android:layout_width="wrap_content"
+        android:src="@drawable/baseline_access_time_24"
+        android:layout_height="wrap_content">
+
+    </ImageView>
+    <TextView
+        android:id="@+id/tow_tv_date"
+        android:layout_width="0dp"
+        android:text="20/20/2020"
+        android:layout_marginTop="16dp"
+        android:textAlignment="center"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/row_iv_date">
+
+    </TextView>
+
+
+
+    <ImageView
+        android:id="@+id/row_iv_nume"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/row_iv_date"
+
+        android:layout_marginTop="8dp"
+        android:layout_marginStart="8dp"
+        app:layout_constraintEnd_toStartOf="@id/tow_tv_nume"
+        android:layout_width="wrap_content"
+        android:src="@drawable/baseline_person_24"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+    </ImageView>
+    <TextView
+        android:id="@+id/tow_tv_nume"
+        android:layout_width="0dp"
+        android:text="NUME"
+        android:textAllCaps="true"
+        android:layout_marginTop="8dp"
+        android:textAlignment="center"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/row_iv_date"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/row_iv_nume">
+
+    </TextView>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

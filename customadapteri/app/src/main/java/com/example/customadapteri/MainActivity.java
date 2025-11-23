@@ -43,6 +43,11 @@ public class MainActivity extends AppCompatActivity {
             intent.putExtra("k",studenti);
             startActivity(intent);
         }
+        if(item.getItemId()==R.id.itlistaca){
+            intent=new Intent(getApplicationContext(),ListaCA.class);
+            intent.putExtra("k",studenti);
+            startActivity(intent);
+        }
         return super.onOptionsItemSelected(item);
     }
 
