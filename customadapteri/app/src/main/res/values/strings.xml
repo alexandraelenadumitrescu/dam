@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">customadapteri</string>
+    <string name="nume">nume</string>
+    <string name="nrcredite">nrcredite</string>
+    <string name="data_de_nastere">data de nastere</string>
+    <string name="salveaza">Salveaza</string>
+</resources>
