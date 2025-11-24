@@ -74,13 +74,13 @@ public class NodeEditorView extends View {
         portPaint.setStyle(Paint.Style.FILL);
         portPaint.setAntiAlias(true);//fara zimti
 
-        // Activăm accelerarea hardware pentru umbre
+        // Activăm accelerarea hardware pentru umbre=foloseste cpu in loc de gpu pentru a desena umbre
         setLayerType(LAYER_TYPE_SOFTWARE, nodeBodyPaint);
     }
 
     public void addNode(Node node) {
         nodes.add(node);
-        invalidate();
+        invalidate();//redeseneaza
     }
 
     public void connectNodes(Node from, Node to) {
@@ -123,30 +123,22 @@ public class NodeEditorView extends View {
     private void drawFancyNode(Canvas canvas, Node node) {
         RectF r = node.position;
 
-        // A. Desenăm corpul (Card)
+        // dreptunghi cu colturi rotunjite
         canvas.drawRoundRect(r, CORNER_RADIUS, CORNER_RADIUS, nodeBodyPaint);
 
-        // B. Desenăm Header-ul colorat (O bandă mică sus sau stânga)
-        // Aici facem o bandă verticală în stânga, stil modern
+        // header in stanga - rotunjit pe partea stanga drept in dreapta
         nodeHeaderPaint.setColor(getNodeColor(node.type));
-        // Clipim doar partea stângă
         RectF headerRect = new RectF(r.left, r.top, r.left + 15, r.bottom);
-        // Desenăm un dreptunghi rotunjit doar pe stânga (truc vizual simplu)
         canvas.drawRoundRect(headerRect, CORNER_RADIUS, CORNER_RADIUS, nodeHeaderPaint);
-        // Acoperim colțurile drepte ale headerului pentru a le face drepte spre interior
         canvas.drawRect(r.left + 8, r.top, r.left + 15, r.bottom, nodeHeaderPaint);
-
-        // C. Desenăm Titlul
+        //titlu
         canvas.drawText(node.title, r.left + 35, r.centerY() + 10, textPaint);
 
-        // D. Desenăm Porturile (Cercurile de conexiune)
-        // Input Port (Stânga) - nu desenăm pentru SOURCE
+        //porturi -input ul nu are port in stanga
         if (node.type != NodeType.SOURCE) {
             canvas.drawCircle(r.left, r.centerY(), PORT_RADIUS, portPaint);
             canvas.drawCircle(r.left, r.centerY(), PORT_RADIUS - 4, nodeBodyPaint); // Gaură în mijloc
         }
-
-        // Output Port (Dreapta)
         canvas.drawCircle(r.right, r.centerY(), PORT_RADIUS, portPaint);
     }
 
@@ -160,7 +152,7 @@ public class NodeEditorView extends View {
         float endY = end.position.centerY();
 
         path.moveTo(startX, startY);
-
+        //desenare curbe bezier
         // Logică Bezier n8n: Control points sunt orizontale
         float controlPointX1 = startX + 150; // Trage firul spre dreapta
         float controlPointX2 = endX - 150;   // Trage firul din stânga
@@ -171,7 +163,7 @@ public class NodeEditorView extends View {
     }
 
     private int getNodeColor(NodeType type) {
-        // Culori vibrante pe fundal închis
+        //color code Input-verde; output-rosu; decizional-galben/portocaliu;editare-mov
         switch (type) {
             case SOURCE: return Color.parseColor("#00E676"); // verde menta
             case AI_CULLING: return Color.parseColor("#FF4081"); // roz-rosu
@@ -186,7 +178,7 @@ public class NodeEditorView extends View {
         float y = event.getY();
 
         switch (event.getAction()) {
-            case MotionEvent.ACTION_DOWN:
+            case MotionEvent.ACTION_DOWN://verific daca s a atins vreun nod de la ultimul desenat la primul, si il mut in capatul listei
                 // Inversăm lista la iterare pentru a selecta nodul de deasupra (z-index)
                 for (int i = nodes.size() - 1; i >= 0; i--) {
                     Node node = nodes.get(i);
@@ -197,12 +189,12 @@ public class NodeEditorView extends View {
                         // Mutăm nodul selectat la finalul listei (să fie desenat ultimul/deasupra)
                         nodes.remove(i);
                         nodes.add(node);
-                        invalidate();
+                        invalidate();//redesenez
                         return true;
                     }
                 }
                 break;
-            case MotionEvent.ACTION_MOVE:
+            case MotionEvent.ACTION_MOVE://calculez cat am mutat un nod pe fiecare axa daca a fost selectat
                 if (selectedNode != null) {
                     float dx = x - lastTouchX;
                     float dy = y - lastTouchY;
@@ -212,18 +204,18 @@ public class NodeEditorView extends View {
                     invalidate();
                 }
                 break;
-            case MotionEvent.ACTION_UP:
+            case MotionEvent.ACTION_UP://eliberare
                 selectedNode = null;
                 break;
         }
         return true;
     }
-
+//todo separare intre ui si executepipeline
     public Bitmap executePipeline(Bitmap startImage) {
         Node startNode = null;
         for(Node n : nodes) {
             if(n.type == NodeType.SOURCE) {
-                startNode = n;
+                startNode = n;//identidic nodul source
                 break;
             }
         }

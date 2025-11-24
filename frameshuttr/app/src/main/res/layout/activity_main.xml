@@ -23,7 +23,7 @@
             android:layout_weight="1"
             android:clickable="true"
             app:tint="#FFFFFF"
-            app:backgroundTint="#2979FF"
+            app:backgroundTint="#3B82F6"
             android:layout_gravity="center"
 
             app:srcCompat="@android:drawable/ic_media_play" />
