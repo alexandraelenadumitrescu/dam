@@ -13,7 +13,9 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import com.example.frameshuttr.domain.imageProcessor.FeatureExtractor;
 import com.example.frameshuttr.domain.network.APIService;
+import com.example.frameshuttr.domain.network.VectorRequest;
 
 import java.io.ByteArrayOutputStream;
 import java.io.File;
@@ -33,13 +35,23 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class NodeActivity extends AppCompatActivity {
     private static final String BASE_URL="http://192.168.1.132:5000/";
     Button btnSend;
+    Button btnVector;
+    private FeatureExtractor featureExtractor;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_node);
-        btnSend=findViewById(R.id.button);
+        btnSend=findViewById(R.id.button2);
+        btnVector=findViewById(R.id.buttonVector);
+        featureExtractor = new FeatureExtractor(this);
+        btnVector.setOnClickListener(v->{
+            Bitmap bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.cat);
+            //float[] vector=generateFakeEmbeddings(128);
+            float[] vector=featureExtractor.extractFeatures(bitmap);
+            sendEmbeddings(vector);
+        });
         btnSend.setOnClickListener(v->{
             Bitmap dummy= BitmapFactory.decodeResource(getResources(),R.drawable.img);
             uploadImage(dummy);
@@ -49,6 +61,46 @@ public class NodeActivity extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+    }
+
+    private void sendEmbeddings(float[] vector) {
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl("http://192.168.1.132:5000/") // URL-ul tău
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+
+        APIService apiService = retrofit.create(APIService.class);
+
+        // Creăm obiectul de cerere
+        VectorRequest request = new VectorRequest(vector);
+
+        apiService.sendVector(request).enqueue(new Callback<ResponseBody>() {
+            @Override
+            public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
+                if (response.isSuccessful()) {
+                    try {
+                        String result = response.body().string();
+                        Log.d("VECTOR_TEST", "Server zice: " + result);
+                        Toast.makeText(getApplicationContext(), "Analiză OK: " + result, Toast.LENGTH_LONG).show();
+                    } catch (IOException e) { e.printStackTrace(); }
+                } else {
+                    Toast.makeText(getApplicationContext(), "Eroare: " + response.code(), Toast.LENGTH_SHORT).show();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<ResponseBody> call, Throwable t) {
+                Toast.makeText(getApplicationContext(), "Fail: " + t.getMessage(), Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+
+    private float[] generateFakeEmbeddings(int size) {
+        float[] vector = new float[size];
+        for (int i = 0; i < size; i++) {
+            vector[i] = (float) Math.random(); // Valori între 0.0 și 1.0
+        }
+        return vector;
     }
 
     private void uploadImage(Bitmap dummy) {
