@@ -50,7 +50,7 @@ public class NodeActivity extends AppCompatActivity {
             Bitmap bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.cat);
             //float[] vector=generateFakeEmbeddings(128);
             float[] vector=featureExtractor.extractFeatures(bitmap);
-            sendEmbeddings(vector);
+            sendEmbeddings(vector);//todo
         });
         btnSend.setOnClickListener(v->{
             Bitmap dummy= BitmapFactory.decodeResource(getResources(),R.drawable.img);
