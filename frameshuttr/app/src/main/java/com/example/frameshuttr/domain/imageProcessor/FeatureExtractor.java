@@ -23,7 +23,7 @@ public class FeatureExtractor {
     public FeatureExtractor(Context context) {
         try {
             // 1. Încărcăm modelul din Assets
-            MappedByteBuffer tfliteModel = FileUtil.loadMappedFile(context, "mobilenet.tflite");
+            MappedByteBuffer tfliteModel = FileUtil.loadMappedFile(context, "1.tflite");
             // 2. Inițializăm interpretorul (Creierul)
             Interpreter.Options options = new Interpreter.Options();
             interpreter = new Interpreter(tfliteModel, options);
@@ -38,6 +38,7 @@ public class FeatureExtractor {
         // 1. Pre-procesare Imagine
         // Convertim Bitmap-ul în formatul cerut de TFLite (Tensor)
         TensorImage tensorImage = new TensorImage(DataType.FLOAT32);
+        //TensorImage tensorImage = new TensorImage(DataType.UINT8);
         tensorImage.load(bitmap);
 
         // Procesorul face Resize automat și Normalizează pixelii
