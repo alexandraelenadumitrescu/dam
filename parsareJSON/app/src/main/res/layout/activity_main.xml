@@ -30,6 +30,7 @@
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:layout_width="wrap_content"
+                    android:id="@+id/tiet1"
                     android:layout_height="wrap_content"
                     android:text="haide"></com.google.android.material.textfield.TextInputEditText>
             </com.google.android.material.textfield.TextInputLayout>
@@ -41,27 +42,34 @@
                 <com.google.android.material.textfield.TextInputEditText
                     android:layout_width="100dp"
                     android:layout_height="wrap_content"
+                    android:id="@+id/tiet2"
 
                     android:text="haide2"></com.google.android.material.textfield.TextInputEditText>
             </com.google.android.material.textfield.TextInputLayout>
             <Button
                 android:layout_width="wrap_content"
+                android:text="salveaza"
+                android:id="@+id/btn_save"
                 android:layout_height="wrap_content"></Button>
             <Button
                 android:layout_width="wrap_content"
+                android:text="incarca"
+                android:id="@+id/btn_load"
                 android:layout_height="wrap_content"></Button>
 
         </LinearLayout>
 
         <Button
-            android:id="@+id/button5"
+            android:id="@+id/btn_delete"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Button" />
+
+            android:text="sterge tot" />
+
         <EditText
             android:layout_width="match_parent"
-            android:focusable="false"
-            android:layout_height="wrap_content">
+            android:layout_height="540dp"
+            android:focusable="false">
 
         </EditText>
     </LinearLayout>

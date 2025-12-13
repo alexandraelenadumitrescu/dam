@@ -1,10 +1,27 @@
 package com.example.parsarejson;
 
+
+import androidx.room.ColumnInfo;
+import androidx.room.Dao;
+import androidx.room.Entity;
+import androidx.room.Insert;
+import androidx.room.PrimaryKey;
+
+import java.util.List;
+
+@Entity
 public class Cursa {
+    @PrimaryKey(autoGenerate = true)
     private int id;
+
+
+    @ColumnInfo(name  ="destinatie")
     private String destinatie;
+    @ColumnInfo(name  ="distanta")
     private int distanta;
+    @ColumnInfo(name  ="manual")
     private boolean manual;
+
 
     @Override
     public String toString() {
@@ -49,7 +66,7 @@ public class Cursa {
     }
 
     public Cursa(int id, String destinatie, int distanta, boolean manual) {
-        this.id = id;
+        this.id=id;
         this.destinatie = destinatie;
         this.distanta = distanta;
         this.manual = manual;
