@@ -74,6 +74,9 @@ public class MainActivity extends AppCompatActivity {
             // 3. Afișăm tot textul în tiet2 (sau alt EditText dedicat afișării)
             ed.setText(builder.toString());
         });
+        btnDelete.setOnClickListener(v->{
+            db.persoanaDao().deleteAll();
+        });
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
